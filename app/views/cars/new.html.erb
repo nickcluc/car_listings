@@ -2,9 +2,15 @@
 
 <%= simple_form_for(@car) do |f| %>
   <%= f.association :manufacturer %>
+  <br>
   <%= f.input :color %>
-  <%= f.input :year, collection: 1920..Time.now.year %>
+  <br>
+  <%= f.input :year, collection: (1920..(Time.now.year)).sort.reverse  %>
+  <br>
   <%= f.input :mileage %>
+  <br>
+  <%= f.input :description %>
+  <br>
   <%= f.submit %>
-
+  <br>
 <% end %>

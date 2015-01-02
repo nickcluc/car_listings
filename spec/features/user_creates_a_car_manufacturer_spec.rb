@@ -28,7 +28,7 @@ feature "user records a car manufacturer", %{
     expect(page).to have_content "Create A New Manufacturer"
 
     fill_in "Name", with: mfg.name
-    select(mfg.country, :from => 'Country')
+    select(mfg.country, from: 'Country')
 
     click_on "Create Manufacturer"
 
@@ -39,7 +39,7 @@ feature "user records a car manufacturer", %{
   end
 
   scenario "User unsuccessfully creates a car manufacturer" do
-    
+
     visit new_manufacturer_path
 
     click_on "Create Manufacturer"
