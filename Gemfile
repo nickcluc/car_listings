@@ -19,3 +19,6 @@ group :development, :test do
   gem 'pry-rails'
   # gem 'better_errors'
 end
+
+gem 'simple_form'
+gem 'country_select'

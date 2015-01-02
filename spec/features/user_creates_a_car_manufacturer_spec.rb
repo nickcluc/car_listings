@@ -2,7 +2,7 @@ require "rails_helper"
 
 mfg_params = {
   name: "Ford",
-  country: "USA"
+  country: "United States of America"
 }
 
 feature "user records a car manufacturer", %{
@@ -20,21 +20,32 @@ feature "user records a car manufacturer", %{
 } do
 
   scenario "User successfully creates a car manufacturer" do
+
     visit new_manufacturer_path
 
-    mfg = Manufacturer.create(mfg_params)
+    mfg = Manufacturer.new(mfg_params)
 
-    save_and_open_page
+    expect(page).to have_content "Create A New Manufacturer"
 
     fill_in "Name", with: mfg.name
-    fill_in "Country", with: mfg.country
+    select(mfg.country, :from => 'Country')
 
     click_on "Create Manufacturer"
 
-    expect(page).to have_content "Manufacturer Successfully Created!"
+    expect(page).to have_content "Manufacturer Saved Successfully!"
     expect(page).to have_content mfg.name
-    expect(page).to have_content mfg.country
-    current_path.should == manufacturers_path
+    expect(current_path) == manufacturers_path
+
+  end
+
+  scenario "User unsuccessfully creates a car manufacturer" do
+    
+    visit new_manufacturer_path
+
+    click_on "Create Manufacturer"
+
+    expect(page).to have_content "can't be blank"
+    expect(current_path) == new_manufacturer_path
 
   end
 end
