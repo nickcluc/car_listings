@@ -13,6 +13,17 @@
   </div>
   <% end %>
 
+  <nav>
+    <li><%= link_to "Crazy Harry's Used Car Emporium Car Database", root_path %></li>
+    <li><%= link_to "Add New Car", new_car_path %></li>
+    <li><%= link_to "Add New Manufacturer", new_manufacturer_path %></li>
+    <% if current_page?(manufacturers_path) %>
+      <li><%= link_to "Cars", cars_path %></li>
+    <% elsif current_page?(cars_path) %>
+      <li><%= link_to "Manufacturers", manufacturers_path %></li>
+    <% end %>
+  </nav>
+
 <%= yield %>
 
 </body>

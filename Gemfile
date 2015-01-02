@@ -17,7 +17,7 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'pry-rails'
-  # gem 'better_errors'
+  gem 'factory_girl_rails'
 end
 
 gem 'simple_form'

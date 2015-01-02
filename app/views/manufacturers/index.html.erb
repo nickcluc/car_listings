@@ -1,7 +1,7 @@
-<h1>Manufacturers</h1>
+<h1>Car Manufacturers</h1>
 
 <ul>
   <% @manufacturers.each do |mfg| %>
-    <li><a href="manufacturers/<%= mfg.id %>"><%= mfg.name %></a></li>
+    <li><%= mfg.name %></li>
   <% end %>
 </ul>

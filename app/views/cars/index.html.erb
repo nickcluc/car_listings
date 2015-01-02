@@ -1,0 +1,7 @@
+<h1>Cars On The Lot</h1>
+
+<ul>
+  <% @cars.each do |car| %>
+    <li><%= car.color %> <%= car.year %> <%= car.manufacturer.name %></li>
+  <% end %>
+</ul>
