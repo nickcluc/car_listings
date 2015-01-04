@@ -28,7 +28,7 @@ feature "user records a car manufacturer", %{
     expect(page).to have_content "Create A New Manufacturer"
 
     fill_in "Name", with: mfg.name
-    select(mfg.country, from: 'Country')
+    find(:select, "Country").first(:option, mfg.country).select_option
 
     click_on "Create Manufacturer"
 
